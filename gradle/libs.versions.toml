@@ -1,5 +1,5 @@
 [versions]
-agp = "8.9.1"
+agp = "8.9.2"
 kotlin = "2.0.21"
 coreKtx = "1.16.0"
 junit = "4.13.2"
@@ -7,7 +7,9 @@ junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.1"
-composeBom = "2024.09.00"
+composeBom = "2025.04.01"
+kspVersion = "2.1.20-2.0.1"
+hiltVersion = "2.51.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +27,26 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
+daggerHilt = {group = "com.google.dagger", name = "hilt-android", version = "2.51.1" }
+hiltNavCompose = {group = "androidx.hilt", name = "hilt-navigation-compose", version = "1.2.0" }
+hiltAndroidCompiler = {group = "com.google.dagger", name = "hilt-android-compiler", version = "2.50" }
+hiltCompiler = {group = "com.google.dagger", name = "hilt-compiler", version = "2.51.1" }
+hiltCompilerAndroidX = {group = "androidx.hilt", name = "hilt-compiler", version = "1.2.0" }
+hiltLifecycleViewModel = {group = "androidx.hilt", name = "hilt-lifecycle-viewmodel", version = "1.0.0-alpha03" }
+
+mockitoCore = "org.mockito:mockito-core:3.12.4"
+mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
+mockitoInline = "org.mockito:mockito-inline:4.0.0"
+mockk = "io.mockk:mockk:1.13.8"
+
+testRules = "androidx.test:rules:1.1.0"
+
+coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.7"
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-
+kotlinAndroidKsp = {id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+hiltAndroid = {id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }

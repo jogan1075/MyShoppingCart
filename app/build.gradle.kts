@@ -2,14 +2,15 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlinAndroidKsp)
 }
 
 android {
-    namespace = "com.jmc.myshoppingcart"
+    namespace = "com.jmc.shoppingcart"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jmc.myshoppingcart"
+        applicationId = "com.jmc.shoppingcart"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -56,4 +58,20 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation("com.github.jogan1075:Core:1.0.0")
+
+    //hilt
+    implementation(libs.daggerHilt)
+    implementation(libs.hiltNavCompose)
+    ksp(libs.hiltCompiler)
+    ksp(libs.hiltAndroidCompiler)
+    ksp(libs.hiltCompiler)
+
+    implementation(libs.mockk)
+    implementation(libs.mockitoCore)
+    implementation(libs.mockitoInline)
+    implementation(libs.mockitoKotlin)
+    implementation(libs.testRules)
+    implementation(libs.coroutineTest)
 }
