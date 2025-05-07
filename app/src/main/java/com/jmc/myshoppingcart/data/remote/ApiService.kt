@@ -8,9 +8,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("products")
-    suspend fun getAllProducts(
-        @Query("limit") limit: Int? = null, @Query("sort") sort: String? = null
-    ): List<ProductItem>
+    suspend fun getAllProducts(): List<ProductItem>
 
     @GET("products/{id}")
     suspend fun getProductById(

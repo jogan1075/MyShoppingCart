@@ -53,12 +53,34 @@ class CartViewModel @Inject constructor(
         }
     }
 
+    fun removeFromCart(productId: Int) {
+        launch {
+            val currentCart = repository.getValueByCache().first()
+
+            if (currentCart.containsKey(productId)) {
+                val currentQuantity = currentCart[productId] ?: 0
+
+                if (currentQuantity > 1) {
+                    currentCart[productId] = currentQuantity - 1
+                } else {
+                    currentCart.remove(productId)
+                }
+
+                repository.saveInCache(currentCart)
+                setState {
+                    copy(cart = currentCart)
+                }
+            }
+        }
+    }
+
 
     public override fun handleEvents(intent: CartContract.Event) {
         when (intent) {
             is CartContract.Event.AddToCart -> addToCart(intent.id!!)
 
             is CartContract.Event.GetProducts -> getDetailProduct()
+            is CartContract.Event.RemoveToCart -> removeFromCart(intent.id!!)
         }
     }
 

@@ -20,7 +20,7 @@ class HomeContractTest {
 
     @Test
     fun `cartCount should return correct total quantity`() {
-        val cart = mapOf(1 to 2, 2 to 3, 3 to 1) // Total = 6
+        val cart = mapOf(1 to 2, 2 to 3, 3 to 1)
         val state = HomeContract.State(cart = cart)
 
         assertEquals(6, state.cartCount)

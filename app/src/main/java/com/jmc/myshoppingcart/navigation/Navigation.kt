@@ -47,7 +47,6 @@ fun Navigation(startDestination: String = Routes.HomeScreen.route) {
             if (productId != null) {
                 ProductDetailScreen(productId = productId, navController = navController)
             } else {
-                // Manejo de error: producto no encontrado
                 Text("Producto no encontrado")
             }
         }

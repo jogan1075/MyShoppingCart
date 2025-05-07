@@ -1,13 +1,11 @@
 package com.jmc.myshoppingcart.ui.view
 
 import android.annotation.SuppressLint
-import android.widget.ProgressBar
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -84,7 +82,6 @@ fun Modifier.disableGestures(disabled: Boolean = true) =
     if (disabled) {
         pointerInput(Unit) {
             awaitPointerEventScope {
-                // we should wait for all new pointer events
                 while (true) {
                     awaitPointerEvent(pass = PointerEventPass.Initial)
                         .changes

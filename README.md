@@ -72,7 +72,6 @@ Datos obtenidos desde [FakeStore API](https://fakestoreapi.com/).
 ## 📌 Notas
 
 - Si el API falla, los datos pueden no mostrarse correctamente. Se pueden agregar mejoras como manejo de errores o loading states.
-- Puedes modificar libremente estilos y paleta de colores para adaptar el diseño.
 
 ---
 

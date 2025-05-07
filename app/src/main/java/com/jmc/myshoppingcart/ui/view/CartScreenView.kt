@@ -29,19 +29,15 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.jmc.myshoppingcart.presentation.CartViewModel
 import com.jmc.myshoppingcart.presentation.contract.CartContract
+import com.jmc.myshoppingcart.presentation.contract.CartContract.Event.AddToCart
 
 @Composable
-fun CartScreenView(viewModel: CartViewModel = hiltViewModel(),navController: NavController) {
+fun CartScreenView(viewModel: CartViewModel = hiltViewModel(), navController: NavController) {
     val onEventSent = viewModel::setEvent
     val uiState = viewModel.viewState.value
 
-//    val cartItems = viewModel.cart
-//    val allProducts = viewModel.products
-//    val productsInCart = allProducts.filter { cartItems.containsKey(it.id) }
-//    val total = viewModel.getCartTotal(productsInCart)
-
     LoadingScreen(uiState.isLoading) {
-        ContentCart(uiState,onEventSent,navController)
+        ContentCart(uiState, onEventSent, navController)
     }
 
 }
@@ -67,7 +63,7 @@ private fun ContentCart(
             )
         }
     ) { padding ->
-        Column (modifier = Modifier.padding(padding)){
+        Column(modifier = Modifier.padding(padding)) {
             LazyColumn(modifier = Modifier.padding(16.dp)) {
                 items(productsInCart.size) { index ->
                     val quantity = uiState.cart.values.elementAt(index)
@@ -87,11 +83,17 @@ private fun ContentCart(
                                 .padding(end = 8.dp)
                         )
                         Text(productsInCart[index].title, modifier = Modifier.weight(1f))
-                        IconButton(onClick = { /*viewModel.removeFromCart(product.id)*/ }) {
+                        IconButton(onClick = {
+                            onEventSent(
+                                CartContract.Event.RemoveToCart(
+                                    productsInCart[index].id
+                                )
+                            )
+                        }) {
                             Icon(Icons.Default.Clear, contentDescription = null)
                         }
                         Text("$quantity")
-                        IconButton(onClick = { /*viewModel.addToCart(product.id) */ }) {
+                        IconButton(onClick = { onEventSent(AddToCart(productsInCart[index].id)) }) {
                             Icon(Icons.Default.Add, contentDescription = null)
                         }
                     }

@@ -8,6 +8,7 @@ class CartContract {
     sealed class Event : ViewEvent {
         data object GetProducts : Event()
         data class AddToCart(val id: Int?) : Event()
+        data class RemoveToCart(val id: Int?) : Event()
     }
 
     data class State(
@@ -16,7 +17,6 @@ class CartContract {
         val cart: Map<Int, Int> = emptyMap(),
 
     ) : ViewState {
-        val cartCount: Int get() = cart.values.sum()
         override fun clearErrors(): State {
             return copy()
         }

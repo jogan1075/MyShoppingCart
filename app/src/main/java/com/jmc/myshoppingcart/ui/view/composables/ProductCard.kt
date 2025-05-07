@@ -1,4 +1,4 @@
-package com.jmc.myshoppingcart.ui.composables
+package com.jmc.myshoppingcart.ui.view.composables
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

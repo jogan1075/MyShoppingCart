@@ -48,7 +48,6 @@ class SearchViewModelTest {
     fun `should initialize with loading state`() {
         val state = viewModel.viewState.value
 
-        // Verify initial state is loading and products and categories are empty
         assertTrue(state.isLoading)
         assertTrue(state.products.isEmpty())
         assertTrue(state.categories.isEmpty())

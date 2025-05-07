@@ -1,6 +1,5 @@
 package com.jmc.myshoppingcart.data
 
-import androidx.collection.mutableDoubleListOf
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.jmc.myshoppingcart.data.factory.Factory

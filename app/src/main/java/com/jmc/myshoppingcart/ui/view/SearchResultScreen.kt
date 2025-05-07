@@ -41,7 +41,7 @@ fun SearchResultScreen(
 
     onEventSent(SearchProductByCategory(category))
     LoadingScreen(uiState.isLoading) {
-        ContentSearch(uiState,onEventSent,navController)
+        ContentSearch(uiState,navController)
     }
 
 
@@ -51,7 +51,6 @@ fun SearchResultScreen(
 @Composable
 fun ContentSearch(
     uiState: SearchContract.State,
-    onEventSent: (SearchContract.Event) -> Unit,
     navController: NavController
 ) {
     Scaffold(

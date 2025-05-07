@@ -36,8 +36,8 @@ import androidx.navigation.NavController
 import com.jmc.myshoppingcart.navigation.Routes
 import com.jmc.myshoppingcart.presentation.HomeViewModel
 import com.jmc.myshoppingcart.presentation.contract.HomeContract
-import com.jmc.myshoppingcart.ui.composables.FeaturedProductCard
-import com.jmc.myshoppingcart.ui.composables.ProductCard
+import com.jmc.myshoppingcart.ui.view.composables.FeaturedProductCard
+import com.jmc.myshoppingcart.ui.view.composables.ProductCard
 import kotlinx.coroutines.launch
 
 @Composable
@@ -91,7 +91,6 @@ private fun Content(
                                 .clickable {
                                     scope.launch { drawerState.close() }
                                     navController.navigate("searchResult/$category")
-//                                viewModel.loadProductsByCategory(category)
                                 }
                                 .padding(8.dp)
                         )

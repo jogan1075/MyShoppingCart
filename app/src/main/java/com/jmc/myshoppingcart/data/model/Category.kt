@@ -1,6 +1,4 @@
-package com.jmc.shoppingcart.data.model
-
-import com.jmc.myshoppingcart.data.model.Rating
+package com.jmc.myshoppingcart.data.model
 
 data class Category(
     val category: String,
