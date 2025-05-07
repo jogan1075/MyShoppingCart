@@ -3,14 +3,15 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlinAndroidKsp)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
-    namespace = "com.jmc.shoppingcart"
+    namespace = "com.jmc.myshoppingcart"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jmc.shoppingcart"
+        applicationId = "com.jmc.myshoppingcart"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -39,6 +40,24 @@ android {
         compose = true
         buildConfig = true
     }
+    packaging {
+        resources {
+            excludes += setOf(
+//                "META-INF/LICENSE",
+//                "META-INF/LICENSE.md",
+//                "META-INF/LICENSE.txt",
+//                "META-INF/NOTICE",
+//                "META-INF/NOTICE.txt"
+
+                "META-INF/LICENSE.md",
+                "META-INF/LICENSE-notice.md",
+                "META-INF/LICENSE.txt",
+                "META-INF/NOTICE",
+                "META-INF/NOTICE.txt",
+                "META-INF/DEPENDENCIES"
+            )
+        }
+    }
 }
 
 dependencies {
@@ -60,7 +79,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation("com.github.jogan1075:Core:1.0.0")
-
+    implementation("io.coil-kt:coil-compose:2.2.0")
     //hilt
     implementation(libs.daggerHilt)
     implementation(libs.hiltNavCompose)
@@ -74,4 +93,7 @@ dependencies {
     implementation(libs.mockitoKotlin)
     implementation(libs.testRules)
     implementation(libs.coroutineTest)
+    testImplementation(kotlin("test"))
+
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
 }
