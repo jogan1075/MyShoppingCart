@@ -6,7 +6,6 @@ Esta aplicación es un MVP para un emprendimiento de venta de artículos de uso 
 - Ver el detalle de un producto
 - Agregar productos al carrito
 - Visualizar y modificar el carrito
-- Calcular el total a pagar
 - Guardar localmente el contenido del carrito
 
 ## 👷️ Tecnologías y herramientas
@@ -15,9 +14,9 @@ Esta aplicación es un MVP para un emprendimiento de venta de artículos de uso 
 - **UI Toolkit**: Jetpack Compose
 - **Inyección de dependencias**: Hilt
 - **Persistencia local**: SharedPreferences + Gson
-- **Consumo de API REST**: `khttp`
+- **Consumo de API REST**: `retrofit`
 - **Carga de imágenes**: Coil
-- **Arquitectura**: MVVM
+- **Arquitectura**: UDF
 
 ## 📦 API utilizada
 
@@ -68,7 +67,6 @@ Datos obtenidos desde [FakeStore API](https://fakestoreapi.com/).
 - [x] Ver detalle/rating del producto
 - [x] Agregar productos al carro
 - [x] Quitar productos del carro
-- [x] Ver el valor a pagar
 - [x] Guardar el carrito de forma persistente
 
 ## 📌 Notas
